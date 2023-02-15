@@ -215,9 +215,9 @@ input {
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
-  text-align: right;
+  text-align: left;
   line-height: 0.3;
-  opacity: 0;
+  opacity: 1;
   transition: 0.3s;
 }
 .formData[data-error-visible="true"]::after {
@@ -225,6 +225,9 @@ input {
 }
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
+}
+.formData[data-succes-visible="true"] .text-control {
+  border: 2px solid #2bff00;
 }
 /* 
 input[data-error]::after {
