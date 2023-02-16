@@ -98,7 +98,7 @@ function validateInput(
         '- vous avez acceptez les conditions - ' + 
         '- Est ce que vous voulez être au courant des évènements? '+newsletterGestion(newsletter),
     )
-  }else{alert("pas Valide");}
+  }
 }
 
 function firstGestion(first) {
