@@ -9,29 +9,48 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector('.bground')
+const content = document.querySelector('.content')
 const modalBtn = document.querySelectorAll('.modal-btn')
 const formData = document.querySelectorAll('.formData')
+const formMerci = document.querySelector('#body-merci')
 const btnClose = document.querySelector('.close')
-const form = document.querySelector('.bground')
+const fermer = document.querySelector('#fermer')
+
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener('click', launchModal))
+
+//fermer le formulaire
 btnClose.addEventListener('click', () => {
-  form.style.display = 'none'
+  modalbg.style.display = 'none'
 })
+
+//fermer le formulaire apres la confirmation
+formMerci.style.display = 'none'//visibilite par defaut
+
+function fermerValidation(){
+fermer.addEventListener('click', () => {
+  formMerci.style.display = 'none'
+  modalbg.style.display = 'none'
+})}
 
 // launch modal form
 function launchModal() {
   modalbg.style.display = 'block'
+  content.style.display = 'block'
 }
-//lancer le formulaire
+
 
 const btnValidate = document.querySelector('#validate')
 
-//verifier le formulaire
+
+//verifier le formulaire au clique du bouton inscription
 btnValidate.addEventListener('click', validateForm)
 
+
+
 //Gestion de la vérification des inputs
+//recuperer les ids des inputs et appeler la fonction "validateinput" pour verification des inputs
 function validateForm(e) {
   const first = document.querySelector('#first')
   const last = document.querySelector('#last')
@@ -65,7 +84,7 @@ function validateInput(
   condition,
   newsletter,
 ) {
-  const trueOrFalse = [
+  const trueOrFalse = [ //fonction pour filtrer chaque valeur des inputs recuperer en argument
     firstGestion(first),
     lastGestion(last),
     emailGestion(email),
@@ -82,7 +101,7 @@ function validateInput(
     }
   }
   if ((countFalse === 0)) {
-    alert(
+    console.log(
       'Vous êtes : ' +
         first.value +
         ' - ' +
@@ -98,6 +117,11 @@ function validateInput(
         '- vous avez acceptez les conditions - ' + 
         '- Est ce que vous voulez être au courant des évènements? '+newsletterGestion(newsletter),
     )
+    
+    content.style.display = 'none'
+    btnClose.style.display = 'none'
+    formMerci.style.display = 'flex'
+    fermerValidation()
   }
 }
 
@@ -151,7 +175,7 @@ function birthdateGestion(birthdate) {
     errorEvent(birthdate, 'le champ est vide!')
     return false
   } else if (checkBirthday(birthdate.value) == false) {
-    errorEvent(birthdate, "Vous ne pouvez pas être né(e) au-delà d'aujourd'hui")
+    errorEvent(birthdate, 'Vous ne pouvez pas être né(e) au-delà de ce jour')
     return false
   } else {
     succesEvent(birthdate, birthdate.value)
@@ -192,7 +216,7 @@ function conditionGestion(condition) {
     succesEvent(condition, conditionCheck)
     return true, 'conditions acceptées';
   } else {
-    errorEvent(condition, "Veuillez accepter les conditions d'utilisation");
+    errorEvent(condition, 'Veuillez accepter les conditions');
     return false
   }
 }
@@ -211,14 +235,14 @@ function newsletterGestion(newsletter) {
 function errorEvent(input, message) {
   input.parentElement.setAttribute('data-error', message) //selectionne le parent de l'element de la variable et installe l'attribut data-error reperé dans le css
   input.parentElement.setAttribute('data-error-visible', true) // affiche un contour rouge à l'input
-  input.parentElement.setAttribute('data-succes-visible', false) //efface le contour vert à l'input
+  //input.parentElement.setAttribute('data-succes-visible', false) //efface le contour vert à l'input
   console.log(message)
 }
 
 function succesEvent(inputTag, input) {
   inputTag.parentElement.removeAttribute('data-error') //efface l'attribut
   inputTag.parentElement.removeAttribute('data-error-visible') //efface l'attribut qui permet le contour rouge
-  inputTag.parentElement.setAttribute('data-succes-visible', true) //affiche un contour vert
+  //inputTag.parentElement.setAttribute('data-succes-visible', true) //affiche un contour vert
   console.log(input + ' enregistré !')
 }
 
