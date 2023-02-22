@@ -235,11 +235,11 @@ function localGestion(location) {
 
 function conditionGestion(condition) {//verifie si les conditions sont checkées ou non
   if (condition.checked) {
-    let conditionCheck = condition.checked;
+    let conditionCheck = condition.value;
     succesEvent(condition, conditionCheck);
-    return true, 'conditions acceptées';
+    return 'conditions acceptées', true;
   } else {
-    errorEvent(condition, 'Veuillez accepter les conditions');
+    errorEvent(condition,'Veuillez accepter les conditions');
     return false;
   }
 }
