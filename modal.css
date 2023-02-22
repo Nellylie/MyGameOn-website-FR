@@ -206,7 +206,7 @@ main {
   padding-top: 20px;
   display:flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 90%;
   height:80%;
@@ -214,10 +214,9 @@ main {
   flex-wrap: nowrap;
 }
 #body-merci{
-  padding-top: 20px;
 display: none;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 90%;
   height:80%;
@@ -225,6 +224,9 @@ display: none;
 }
 .merci{
   max-width:200px;
+  top:40%;
+  height:auto;
+  position: relative;
   text-align: center;
 }
 
@@ -233,7 +235,7 @@ display: none;
   margin: 15px auto;
 }
 .btn-submit.fermer{
-margin-bottom: 0px;
+margin-bottom: 20px;
 
 }
 label {
