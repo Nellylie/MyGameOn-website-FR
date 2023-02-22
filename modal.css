@@ -457,7 +457,7 @@ input[data-error]::after {
   font-size: 14px;
 }
 .hero-section {
-  min-height: 93vh;
+  min-height: 30vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -468,7 +468,7 @@ input[data-error]::after {
 
 @media screen and (min-width: 768px) {
 .hero-section{
-  height:500px;
+  height:530px;
 }
 }
 
