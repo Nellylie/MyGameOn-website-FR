@@ -75,14 +75,24 @@ img {
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
+  .header-logo{
+    margin-left: 30px;
+    width:150px;
+    
+    margin-top: 20px;
+    
+  }
+  .topnav{
+    
+  }
   .topnav a {
     display: none;
   }
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: 0;
+    margin-top: 8px;
   }
   .topnav.responsive .icon {
     right: 0;
@@ -98,12 +108,46 @@ img {
     margin-left: auto;
     margin-right: auto;
   }
+  .content {
+    margin: 100px auto;
+    width: 100%;
+    max-width: 500px;
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+    background: #232323;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    padding-top: 10px;
+  }
+
+
+
+
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
 .hero-img {
   margin-left: 70px;
- }}
+ }
+
+ .content {
+  margin: 100px auto;
+  width: 90%;
+  max-width: 500px;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding-top: 10px;
+}
+
+
+}
 
 @media screen and (max-width: 540px) {
   .topnav a {
@@ -188,19 +232,7 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
-.content {
-  margin: 3% auto;
-  width: 90%;
-  max-width: 500px;
-  animation-name: modalopen;
-  animation-duration: var(--modal-duration);
-  background: #232323;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  color: #fff;
-  padding-top: 10px;
-}
+
 .content.remerciement{
   padding-top: 20px;
   display:flex;
@@ -457,7 +489,7 @@ input[data-error]::after {
   font-size: 14px;
 }
 .hero-section {
-  min-height: 30vh;
+  min-height: 40vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -466,9 +498,9 @@ input[data-error]::after {
   margin-bottom: 10px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
 .hero-section{
-  height:530px;
+  height:600px;
 }
 }
 
@@ -495,7 +527,7 @@ input[data-error]::after {
   z-index: 1;
 }
 .hero-headline {
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: normal;
   white-space: nowrap;
 }
@@ -528,7 +560,8 @@ input[data-error]::after {
   padding: 0;
   font-size: 1rem;
   margin: 60px 0 30px;
-  font-weight: bolder;
+  font-weight: 500;
+  font-family: 'Roboto';
 }
 .hero-section > .btn-signup {
   display: none;
@@ -538,7 +571,7 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -556,12 +589,18 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    font-weight: 500;
     white-space: normal;
+    font-family: var(--font-default);
   }
   .hero-text {
-    width: unset;
-    font-size: 1.5rem;
+    width: 100%;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    font-weight: 400;
+    white-space: normal;
+    font-family: var(--font-default);
   }
   .hero-img img {
     border-radius: 10px;
@@ -575,6 +614,8 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+    font-family: 'Roboto';
+    font-weight: 500;
   }
 }
 
