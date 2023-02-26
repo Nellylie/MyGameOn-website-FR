@@ -557,7 +557,7 @@ input[data-error]::after {
   height: 100%;
   object-fit: cover;
   display: block;
-  padding: 0 20px;
+  
 }
 .copyrights {
   color: #fe142f;
@@ -609,6 +609,7 @@ footer {
   .hero-img img {
     border-radius: 10px;
     margin-top: 40px;
+    padding: 0 20px;
   }
   .hero-section > .btn-signup {
     display: block;
