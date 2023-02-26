@@ -1,5 +1,5 @@
 function editNav() {
- let x = document.getElementById('myTopnav')
+  let x = document.getElementById('myTopnav')
   if (x.className === 'topnav') {
     x.className += ' responsive'
   } else {
@@ -32,11 +32,15 @@ function fermerValidation() {
   fermer.addEventListener('click', () => {
     formMerci.style.display = 'none' //gestion des affichages
     modalbg.style.display = 'none'
+    
+    document.querySelector("form[name='reserve']").reset(); //on réinitialise toutes les valeurs des inputs a vide
   })
   document.querySelector('.close2').addEventListener('click', () => {
     //fermer le formulaire apres la confirmation avec la croix
     formMerci.style.display = 'none' //gestion des affichages
     modalbg.style.display = 'none';
+    
+    document.querySelector("form[name='reserve']").reset(); //on réinitialise toutes les valeurs des inputs a vide
   })
 }
 
@@ -111,33 +115,26 @@ function validateInput(
     //si le compteur est a zero, ca veut dire qu'il n y a pas de false, donc on recuperer et en travail avec les valeurs dans les inputs
     console.log(
       'Vous êtes : ' +
-        first.value +
-        ' - ' +
-        last.value +
-        '- Votre email : ' +
-        email.value +
-        '- votre date de naissance : ' +
-        birthdate.value +
-        '- vos tournois : ' +
-        quantity.value +
-        '- votre choix de ville pour le futur tournoi : ' +
-        localGestion(location) +
-        '- vous avez acceptez les conditions - ' +
-        '- Est ce que vous voulez être au courant des évènements? ' +
-        newsletterGestion(newsletter),
+      first.value.toLowerCase() +
+      ' - ' +
+      last.value.toLowerCase() +
+      '- Votre email : ' +
+      email.value +
+      '- votre date de naissance : ' +
+      birthdate.value +
+      '- vos tournois : ' +
+      quantity.value +
+      '- votre choix de ville pour le futur tournoi : ' +
+      localGestion(location) +
+      '- vous avez acceptez les conditions - ' +
+      '- Est ce que vous voulez être au courant des évènements? ' +
+      newsletterGestion(newsletter),
     )
     // une fois filtré et validé, on affiche la page de remerciement et on desactive la page d'inscription
     content.style.display = 'none'
     formMerci.style.display = 'flex'
 
-    first.value = '' //on réinitialise toutes les valeurs des inputs a vide
-    last.value = ''
-    email.value = ''
-    birthdate.value = ''
-    quantity.value = ''
-    location.value = ''
-    condition.value = ''
-    newsletter.value = ''
+
 
     fermerValidation() //on active la fonction pour la fermeture de la page avec le bouton fermer ou la croix
   }
@@ -208,8 +205,8 @@ function birthdateGestion(birthdate) {
 }
 
 function quantityTourGestion(quantity) {
-  if (quantity.value === '') {
-    errorEvent(quantity, 'le champ est vide!')
+  if (!checkNumber(quantity.value)) {
+    errorEvent(quantity, 'Entrez un chiffre!')
     return false
   } else {
     succesEvent(quantity, quantity.value)
@@ -229,7 +226,7 @@ function localGestion(location) {
     console.log(locationValue) //gestion des réussites avec l'affichage de la ville selectionnée
     return true, locationValue
   } else {
-    console.log('Choisissez votre ville!')
+    errorEvent(location[0], 'Choisissez votre ville!')//precision entre crochet pour savoir quel input de la ville traiter puisque sa selection vient d'un selectorAll
     return false
   } //gestion des inputs unchecked
 }
@@ -278,6 +275,11 @@ function checkEmail(checkEmailInput) {
 function checkInput(text) {
   return /^([a-zA-Z]{2,})+$/.test(text) //limiter les champs de A jusqu'à Z, 2 lettres minimums
 }
+
+function checkNumber(number){
+  return /^[0-9]{1,2}$/.test(number) //limiter les champs de A jusqu'à Z, 2 lettres minimums
+}
+
 //pour ne pas que la date de naissance choisie par l'utilisateur soit plus récente que la date du jour
 function checkBirthday(birthdateInput) {
   const date = new Date() //verifie la date
