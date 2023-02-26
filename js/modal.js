@@ -48,6 +48,7 @@ function fermerValidation() {
 function launchModal() {
   modalbg.style.display = 'block'; //gestion des affichages
   content.style.display = 'block';
+  window.scrollTo(0, 0);
 }
 
 //verifier les champs du formulaire en envoyant les données au clique du bouton inscription
