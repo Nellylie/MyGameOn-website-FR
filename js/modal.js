@@ -269,7 +269,7 @@ function succesEvent(inputTag, input) {
 }
 
 function checkEmail(checkEmailInput) {
-  return /^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+.[a-zA-Z.]{2,15}$/.test(checkEmailInput); //filtre email
+  return /^[A-Za-z0-9._+-]+@[A-Za-z0-9-]+[.][A-Za-z.]{2,20}$/gm.test(checkEmailInput); //filtre email
 }
 
 function checkInput(text) {
