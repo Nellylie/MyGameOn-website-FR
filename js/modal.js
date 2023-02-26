@@ -273,7 +273,7 @@ function checkEmail(checkEmailInput) {
 }
 
 function checkInput(text) {
-  return /^([a-zA-Z]{2,})+$/.test(text); //limiter les champs de A jusqu'à Z, 2 lettres minimums
+  return /^[a-zA-Z]{2,25}$/.test(text); //limiter les champs de A jusqu'à Z, 2 lettres minimums
 }
 
 function checkNumber(number) {
