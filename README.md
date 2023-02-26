@@ -1,5 +1,10 @@
-# Projet GameOn
-1. Forkez ce repo ;
-2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ;
-3. Il n'y a aucune dépendance ;
-4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.
+
+# GAMEON
+
+Activation avec javascript de la landing page GAMEON. La page HTML et la partie CSS pré-existentes ont été ajustées pour correspondre aux exigences autour de l'aspect responsive de l'application.
+
+Disponible sur le lien forké : https://nellylie.github.io/MyGameOn-website-FR/
+
+Aucune dépendance n'est utilisée. Le formulaire est filtré avant d'être validé. Le console.log final évoque les variables des données entrées par l'utilisateur. Elles sont disponibles pour un stockage et un traitement du côté back de l'application.
+
+
