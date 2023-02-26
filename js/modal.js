@@ -51,11 +51,11 @@ function launchModal() {
   window.scrollTo(0, 0);
 }
 
-//verifier les champs du formulaire en envoyant les données au clique du bouton inscription
+//verifier les champs du formulaire en envoyant les données au click du bouton inscription
 btnValidate.addEventListener('click', validateForm);
 
 //Gestion de la vérification des inputs
-//recuperer les ids des inputs et appeler la fonction "validateinput" à l'interieur de validateform
+//recuperer les id des inputs et appeler la fonction "validateinput" à l'interieur de validateform
 //pour verification des inputs
 function validateForm(e) {
   const first = document.querySelector('#first'); //associe l'id des inputs a des constantes
@@ -92,7 +92,7 @@ function validateInput(
   newsletter,
 ) {
   const trueOrFalse = [
-    //tableau pour rassembler chaque valeur a filtrer des fonctions autour des inputs recuperer en argument
+    //tableau pour rassembler chaque valeur à filtrer des fonctions autour des inputs récupéré en argument
     firstGestion(first),
     lastGestion(last),
     emailGestion(email),
@@ -108,12 +108,12 @@ function validateInput(
   for (let validator of trueOrFalse) {
     //une boucle for pour chaque element du tableau trueOrfalse
     if (validator === false) {
-      //compare le retour de leur fonction a false, si vrai le compteur s'incremente
+      //compare le retour de leur fonction à false, si vrai le compteur s'incrémente
       countFalse++;
     };
   }
   if (countFalse === 0) {
-    //si le compteur est a zero, ca veut dire qu'il n y a pas de false, donc on recuperer et en travail avec les valeurs dans les inputs
+    //si le compteur est à zero, ca veut dire qu'il n y a pas de false, donc on récupére et on travaille avec les valeurs dans les inputs
     console.log(
       'Vous êtes : ' +
       first.value.toLowerCase() +
@@ -131,7 +131,7 @@ function validateInput(
       '- Est ce que vous voulez être au courant des évènements? ' +
       newsletterGestion(newsletter),
     );
-    // une fois filtré et validé, on affiche la page de remerciement et on desactive la page d'inscription
+    // une fois filtrée et validée on affiche la page de remerciement et on désactive la page d'inscription
     content.style.display = 'none';
     formMerci.style.display = 'flex';
 
@@ -149,11 +149,11 @@ function firstGestion(first) {
     //si la valeur comparée au regex de la fonction appelée retourne faux
     errorEvent(
       first,
-      "Les lettres de l'alphabet sont à eux-seuls autorisés et minimum 2 caractères",
+      "plus de 2 lettres de l'alphabet sont obligatoires "
     );
     return false;
   } else {
-    succesEvent(first, first.value); //toutes les autres situations sont validés et retourne vrai
+    succesEvent(first, first.value); //toutes les autres situations sont validées et retourne vrai
     return true;
   }
 }
@@ -163,11 +163,11 @@ function lastGestion(last) {
     errorEvent(last, 'le champ est vide!');
     return false;
   } else if (!checkInput(last.value)) {
-    //recupere la valeur de la fonction qui compare la valeur du nom au pattern regex
+    //récupere la valeur de la fonction qui compare la valeur du nom au pattern regex
     errorEvent(
       last,
-      "Les lettres de l'alphabet sont à eux-seuls autorisés et minimum 2 caractères",
-    )
+      "plus de 2 lettres de l'alphabet sont obligatoires "
+    );
     return false;
   } else {
     succesEvent(last, last.value);
@@ -180,7 +180,7 @@ function emailGestion(email) {
     errorEvent(email, 'le champ est vide!');
     return false;
   } else if (!checkEmail(email.value)) {
-    //recupere la valeur de la fonction qui compare la valeur du nom au pattern regex
+    //récupere la valeur de la fonction qui compare la valeur du nom au pattern regex
     errorEvent(email, 'votre adresse email est invalide!');
     return false;
   } else {
@@ -194,7 +194,7 @@ function birthdateGestion(birthdate) {
     errorEvent(birthdate, 'le champ est vide!');
     return false;
   } else if (checkBirthday(birthdate.value) == false) {
-    //recupere la valeur de la fonction qui compare la date de naissance avec celle du jour actuel pour avoir une date pausible
+    //récupere la valeur de la fonction qui compare la date de naissance avec celle du jour actuel pour avoir une date possible
     errorEvent(birthdate, 'Vous ne pouvez pas être né(e) au-delà de ce jour');
     return false;
   } else {
