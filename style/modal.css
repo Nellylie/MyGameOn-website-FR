@@ -92,8 +92,7 @@ img {
     margin-top: 20px;
   }
 
-  .topnav {
-  }
+  .topnav {}
 
   .topnav a {
     display: none;
@@ -165,6 +164,7 @@ img {
     color: #fff;
     padding-top: 10px;
   }
+
   .content.remerciement {
     width: 90%;
     height: 80%;
@@ -391,12 +391,12 @@ input[data-error]::after {
   display: none;
 }
 
-.checkbox-input:checked + .checkbox-label .checkbox-icon::after,
-.checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
+.checkbox-input:checked+.checkbox-label .checkbox-icon::after,
+.checkbox-input:checked+.checkbox2-label .checkbox-icon::after {
   opacity: 1;
 }
 
-.checkbox-input:checked + .checkbox2-label .checkbox-icon {
+.checkbox-input:checked+.checkbox2-label .checkbox-icon {
   background: #279e7a;
 }
 
@@ -571,7 +571,7 @@ input[data-error]::after {
   top: 0;
 }
 
-.hero-content > * {
+.hero-content>* {
   position: relative;
   z-index: 1;
 }
@@ -618,7 +618,7 @@ input[data-error]::after {
   font-family: 'Roboto';
 }
 
-.hero-section > .btn-signup {
+.hero-section>.btn-signup {
   display: none;
 }
 
@@ -671,7 +671,7 @@ footer {
     padding: 0 20px;
   }
 
-  .hero-section > .btn-signup {
+  .hero-section>.btn-signup {
     display: block;
     margin: 32px auto 10px;
     padding: 12px 35px;

@@ -1,10 +1,10 @@
 function editNav() {
   var x = document.getElementById('myTopnav');
   if (x.className === 'topnav') {
-    x.className += ' responsive'
+    x.className += ' responsive';
   } else {
-    x.className = 'topnav'
-  };
+    x.className = 'topnav';
+  }
 }
 
 // DOM Elements
@@ -32,14 +32,14 @@ function fermerValidation() {
   fermer.addEventListener('click', () => {
     formMerci.style.display = 'none'; //gestion des affichages
     modalbg.style.display = 'none';
-    
+
     document.querySelector("form[name='reserve']").reset(); //on réinitialise toutes les valeurs des inputs a vide
   })
   document.querySelector('.close2').addEventListener('click', () => {
     //fermer le formulaire apres la confirmation avec la croix
     formMerci.style.display = 'none'; //gestion des affichages
     modalbg.style.display = 'none';
-    
+
     document.querySelector("form[name='reserve']").reset(); //on réinitialise toutes les valeurs des inputs a vide
   })
 }
@@ -65,7 +65,7 @@ function validateForm(e) {
   const location = document.querySelectorAll("input[name='location']"); //selection tous les inputs pour regarder s'il seront checke ou non
   const condition = document.getElementById('checkbox1');
   const newsletter = document.getElementById('checkbox2');
-  e.preventDefault(); // élimine le comportement par défaut de l'evenement du click
+  e.preventDefault() // élimine le comportement par défaut de l'evenement du click
 
   validateInput(
     first,
@@ -109,7 +109,7 @@ function validateInput(
     if (validator === false) {
       //compare le retour de leur fonction a false, si vrai le compteur s'incremente
       countFalse++;
-    }
+    };
   }
   if (countFalse === 0) {
     //si le compteur est a zero, ca veut dire qu'il n y a pas de false, donc on recuperer et en travail avec les valeurs dans les inputs
@@ -134,9 +134,7 @@ function validateInput(
     content.style.display = 'none';
     formMerci.style.display = 'flex';
 
-
-
-    fermerValidation() //on active la fonction pour la fermeture de la page avec le bouton fermer ou la croix
+    fermerValidation();//on active la fonction pour la fermeture de la page avec le bouton fermer ou la croix
   }
 }
 
@@ -152,9 +150,9 @@ function firstGestion(first) {
       first,
       "Les lettres de l'alphabet sont à eux-seuls autorisés et minimum 2 caractères",
     );
-    return false
+    return false;
   } else {
-    succesEvent(first, first.value) //toutes les autres situations sont validés et retourne vrai
+    succesEvent(first, first.value); //toutes les autres situations sont validés et retourne vrai
     return true;
   }
 }
@@ -168,7 +166,7 @@ function lastGestion(last) {
     errorEvent(
       last,
       "Les lettres de l'alphabet sont à eux-seuls autorisés et minimum 2 caractères",
-    );
+    )
     return false;
   } else {
     succesEvent(last, last.value);
@@ -223,11 +221,11 @@ function localGestion(location) {
     }
   }
   if (locationValue !== '') {
-    console.log(locationValue); //gestion des réussites avec l'affichage de la ville selectionnée
+    console.log(locationValue) //gestion des réussites avec l'affichage de la ville selectionnée
     succesEvent(location[0], locationValue);
     return true, locationValue;
   } else {
-    errorEvent(location[0], 'Choisissez votre ville!');//precision entre crochet pour savoir quel input de la ville traiter puisque sa selection vient d'un selectorAll
+    errorEvent(location[0], 'Choisissez votre ville!'); //precision entre crochet pour savoir quel input de la ville traiter puisque sa selection vient d'un selectorAll
     return false;
   } //gestion des inputs unchecked
 }
@@ -239,14 +237,14 @@ function conditionGestion(condition) {
     succesEvent(condition, conditionCheck);
     return 'conditions acceptées', true;
   } else {
-    errorEvent(condition, 'Veuillez accepter les conditions');
+    errorEvent(condition, 'Veuillez accepter les conditions')
     return false;
   }
 }
 
 function newsletterGestion(newsletter) {
   if (!newsletter.checked) {
-    let newsletterCheck = newsletter.checked; //regarde si l'utilisateur veut etre averti des evenements futurs
+    let newsletterCheck = newsletter.checked;//regarde si l'utilisateur veut etre averti des evenements futurs
     succesEvent(newsletter, newsletterCheck);
     return true, 'vous ne serez pas averti(e) des futurs évènements'; //les deux retourneront true et un message pour signaler leurs intentions
   } else {
@@ -264,7 +262,7 @@ function errorEvent(input, message) {
 
 function succesEvent(inputTag, input) {
   inputTag.parentElement.removeAttribute('data-error'); //efface l'attribut
-  inputTag.parentElement.removeAttribute('data-error-visible');//efface l'attribut qui permet le contour rouge
+  inputTag.parentElement.removeAttribute('data-error-visible'); //efface l'attribut qui permet le contour rouge
   //inputTag.parentElement.setAttribute('data-succes-visible', true) //affiche un contour vert
   console.log(input + ' enregistré !');
 }
@@ -277,13 +275,13 @@ function checkInput(text) {
   return /^([a-zA-Z]{2,})+$/.test(text); //limiter les champs de A jusqu'à Z, 2 lettres minimums
 }
 
-function checkNumber(number){
+function checkNumber(number) {
   return /^[0-9]{1,2}$/.test(number); //limiter les champs de A jusqu'à Z, 2 lettres minimums
 }
 
 //pour ne pas que la date de naissance choisie par l'utilisateur soit plus récente que la date du jour
 function checkBirthday(birthdateInput) {
-  const date = new Date() //verifie la date
+  const date = new Date(); //verifie la date
   const yearNow = date.getFullYear();
   const monthNow = date.getMonth() + 1;
   const dayNow = date.getDate();
