@@ -80,7 +80,7 @@ function validateForm(e) {
   )
 }
 
-// mis en place de la fonction validateinput pour filtrer
+// mis en place de la fonction validateinput pour recuperer les valeurs une fois filtrées
 function validateInput(
   first,
   last,
@@ -92,7 +92,7 @@ function validateInput(
   newsletter,
 ) {
   const trueOrFalse = [
-    //tableau pour rassembler chaque valeur à filtrer des fonctions autour des inputs récupéré en argument
+    //tableau pour rassembler chaque valeur filtrée des fonctions autour des inputs récupéré en argument
     firstGestion(first),
     lastGestion(last),
     emailGestion(email),
