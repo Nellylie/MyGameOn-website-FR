@@ -104,6 +104,13 @@ function validateInput(
   ];
 
   let countFalse = 0; //initialisation d'un compteur pour compter les falses
+  let firstFinal = "";
+  let lastFinal = "";
+  let emailFinal = "";
+  let birthdateFinal = "";
+  let quantityTourFinal = "";
+  let localisationFinal = "";
+  let newsletterFinal ="";
 
   for (let validator of trueOrFalse) {
     //une boucle for pour chaque element du tableau trueOrfalse
@@ -113,23 +120,31 @@ function validateInput(
     };
   }
   if (countFalse === 0) {
+    firstFinal = first.value.toLowerCase();
+    lastFinal = last.value.toLowerCase();
+    emailFinal = email.value;
+    birthdateFinal = birthdate.value;
+    quantityTourFinal = quantity.value;
+    localisationFinal = localGestion(location);
+    newsletterFinal = newsletterGestion(newsletter);
+
     //si le compteur est à zero, ca veut dire qu'il n y a pas de false, donc on récupére et on travaille avec les valeurs dans les inputs
     console.log(
       'Vous êtes : ' +
-      first.value.toLowerCase() +
+      firstFinal +
       ' - ' +
-      last.value.toLowerCase() +
+      lastFinal +
       '- Votre email : ' +
-      email.value +
+      emailFinal +
       '- votre date de naissance : ' +
-      birthdate.value +
+      birthdateFinal +
       '- vos tournois : ' +
-      quantity.value +
+      quantityTourFinal +
       '- votre choix de ville pour le futur tournoi : ' +
-      localGestion(location) +
+      localisationFinal +
       '- vous avez acceptez les conditions - ' +
       '- Est ce que vous voulez être au courant des évènements? ' +
-      newsletterGestion(newsletter),
+      newsletterFinal,
     );
     // une fois filtrée et validée on affiche la page de remerciement et on désactive la page d'inscription
     content.style.display = 'none';
